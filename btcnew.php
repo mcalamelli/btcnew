@@ -325,10 +325,10 @@ function btcnew_get_avatar($avatar, $id_or_email, $size='96', $default='', $alt=
 					$default = $id_or_email->comment_author_url . '/l.png';
 					break;
 				case 'btcnew_'.BTCNEW_SRC_REDDIT:
-					$default = WP_PLUGIN_URL . '/backtype-connect/images/reddit-icon-50.gif';
+					$default = WP_PLUGIN_URL . '/btcnew/images/reddit-icon-50.gif';
 					break;
 				case 'btcnew_'.BTCNEW_SRC_YC:
-					$default = WP_PLUGIN_URL . '/backtype-connect/images/yc-icon-50.gif';
+					$default = WP_PLUGIN_URL . '/btcnew/images/yc-icon-50.gif';
 					break;
 			}
 			return "<img alt='{$alt}' src='{$default}' class='avatar avatar-{$size} photo' height='{$size}' width='{$size}' />";

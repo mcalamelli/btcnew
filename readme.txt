@@ -34,7 +34,7 @@ This plugin is a fork of the old Backtype Connect Wordpress plugin, developed by
 Note: It is recommended that you backup your database before installing
 
 1. Download the plugin
-1. Unzip the plugin and upload the `backtype-connect` directory to `/wp-content/plugins/`
+1. Unzip the plugin and upload the `btcnew` directory to `/wp-content/plugins/`
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Configure the plugin through the 'Settings' &gt; 'BTCNew' menu option
 1. Click the 'Enable' button to start importing comments

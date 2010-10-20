@@ -14,13 +14,13 @@ if ($btcnew_summary) {
 	}
 	if ($src = array_shift($btcnew_summary)) {
 		$plural = ($src->cnt != 1) ? 's' : '';
-		$summary_html .= ' <img src="' . WP_PLUGIN_URL . '/backtype-connect/images/' . $src->comment_src . '-16.gif" alt=""/> <a href="http://www.backtype.com/connect/' . _btcnew_url_encode(get_permalink($post->ID));
+		$summary_html .= ' <img src="' . WP_PLUGIN_URL . '/btcnew/images/' . $src->comment_src . '-16.gif" alt=""/> <a href="http://www.backtype.com/connect/' . _btcnew_url_encode(get_permalink($post->ID));
 		$summary_html .= ($src->comment_src == 'twitter') ? '/tweets" title="' . $src->cnt . ' tweet' . $plural . ' on ' . $src->comment_src . '">' . $src->cnt . ' Tweet' : '?src=' . $src->comment_src . '" title="' . $src->cnt . ' comment' . $plural . ' on ' . (($src->comment_src == 'blog') ? 'other sites' : $src->comment_src) . '">' . $src->cnt . (($src->comment_src == 'blog') ? ' Other' : '') . ' Comment';
 		$summary_html .= $plural . '</a>';
 	}
 	foreach ($btcnew_summary as $src) {
 		$plural = ($src->cnt != 1) ? 's' : '';
-		$summary_html .= ' <img src="' . WP_PLUGIN_URL . '/backtype-connect/images/' . $src->comment_src . '-16.gif" style="margin-left:1em" alt=""/> <a href="http://www.backtype.com/connect/' . _btcnew_url_encode(get_permalink($post->ID));
+		$summary_html .= ' <img src="' . WP_PLUGIN_URL . '/btcnew/images/' . $src->comment_src . '-16.gif" style="margin-left:1em" alt=""/> <a href="http://www.backtype.com/connect/' . _btcnew_url_encode(get_permalink($post->ID));
 		$summary_html .= ($src->comment_src == 'twitter') ? '/tweets" title="' . $src->cnt . ' tweet' . $plural . ' on ' . $src->comment_src . '">' . $src->cnt . ' Tweet' : '?src=' . $src->comment_src . '" title="' . $src->cnt . ' comment' . $plural . ' on ' . (($src->comment_src == 'blog') ? 'other sites' : $src->comment_src) . '">' . $src->cnt . (($src->comment_src == 'blog') ? ' Other' : '') . ' Comment';
 		$summary_html .= $plural . '</a>';
 	}
