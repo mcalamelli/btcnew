@@ -3,7 +3,7 @@
 Plugin Name: BTCNew
 Plugin URI: http://www.mcalamelli.net/btcnew
 Description: Show related conversations using the new API(from other blogs, Twitter, Digg, FriendFeed and more) inline with your own comments.
-Version: 0.0.1
+Version: 0.0.2
 Author: Mcalamelli <mcalamelli@gmail.com>
 Author URI: http://www.mcalamelli.net/
 */
@@ -26,7 +26,7 @@ Author URI: http://www.mcalamelli.net/
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('BTCNEW_VERSION', '0.0.1');
+define('BTCNEW_VERSION', '0.0.2');
 
 //define('BTC_API_REGISTER_URL', 'http://api.backtype.com/register-connect.xml');
 define('BTCNEW_API_CONNECT_URL', 'http://api.backtype.com/comments/connect.xml');
