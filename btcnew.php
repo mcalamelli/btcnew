@@ -383,7 +383,7 @@ function btcnew_comment_class($classes, $class=null, $comment_id=null) {
  * @return	string				Adjusted WHERE clause
  */
 function btcnew_comment_feed_where($cwhere) {
-	return $cwhere . ' AND SUBSTR(comment_agent,1,3)!=\'btcnew\'';
+	return $cwhere . ' AND SUBSTR(comment_agent,1,6)!=\'btcnew\'';
 }
 
 /**
@@ -487,7 +487,7 @@ function _btcnew_is_registered() {
  * @return	bool					True if BTC comment; false otherwise
  */
 function _btcnew_is_btc_comment($comment, $ret_ID=false) {
-	if (substr($comment->comment_agent, 0, 4) == 'btcnew_') {
+	if (substr($comment->comment_agent, 0, 7) == 'btcnew_') {
 		if ($ret_ID) {
 			return $comment->comment_ID;
 		}
