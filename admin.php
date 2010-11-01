@@ -44,10 +44,10 @@ function btcnew_settings_submenu() {
 				require_once BTCNEW_DIR . '/install.php';
 				if (get_option(BTCNEW_ENABLED_OPTION)) {
 					btcnew_disable_plugin();
-					_btcnew_display_message(__('BTCNew is now disabled.'), 'success');
+					_btcnew_display_message(__('BTCNew is now disabled.', 'btcnew'), 'success');
 				} else {
 					btcnew_enable_plugin();
-					_btcnew_display_message(__('BTCNew is now enabled.'), 'success');
+					_btcnew_display_message(__('BTCNew is now enabled.', 'btcnew'),'success');
 				}
 			} else {
 				require_once BTCNEW_DIR . '/db.php';
@@ -128,7 +128,7 @@ function btcnew_settings_submenu() {
 					btcnew_db_clear_comment_counts();
 				}
 
-				_btcnew_display_message(__('Settings updated.'), 'success');
+				_btcnew_display_message(__('Settings updated.', 'btcnew'),'success');
 			}
 		}
 		if ($error) {

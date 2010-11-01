@@ -34,5 +34,5 @@ elseif (file_exists(TEMPLATEPATH . $file))
 else
 	require(get_theme_root() . '/default/comments.php');
 
-echo '<p class="btc-powered">Additional comments powered by <a href="http://www.backtype.com/search?q=' . get_permalink($post->ID) . '">BackType</a></p>';
+echo '<p class="btc-powered">'.__('Additional comments powered by', 'btcnew').'<a href="http://www.backtype.com/search?q=' . get_permalink($post->ID) . '">BackType</a></p>';
 ?>

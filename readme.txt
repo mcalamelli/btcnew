@@ -1,9 +1,9 @@
 === BTCNew ===
-Contributors: mcalamelli
+Contributors: mcalamelli,Davide Salerno
 Tags: backtype, comments, twitter, tweets, friendfeed, digg, reddit, conversations
 Requires at least: 2.7
 Tested up to: 3.0.1
-Stable tag: 0.0.2
+Stable tag: 0.0.3
 
 The BTCNew Wordpress plugin lets you show related conversations (from Twitter, Digg, FriendFeed & more) inline with your own comments.
 

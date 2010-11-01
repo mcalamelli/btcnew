@@ -19,7 +19,7 @@ function btcnew_do_install() {
 		return true;
 	}
 	return false;*/
-   add_option(BTCNEW_API_KEY_OPTION, 'enter key here');
+   add_option(BTCNEW_API_KEY_OPTION, __('enter key here','btcnew'));
    btcnew_default_options(true);
    return true;
 }

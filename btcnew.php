@@ -3,7 +3,7 @@
 Plugin Name: BTCNew
 Plugin URI: http://www.mcalamelli.net/btcnew
 Description: Show related conversations using the new API(from other blogs, Twitter, Digg, FriendFeed and more) inline with your own comments.
-Version: 0.0.2
+Version: 0.0.3
 Author: Mcalamelli <mcalamelli@gmail.com>
 Author URI: http://www.mcalamelli.net/
 */
@@ -25,6 +25,8 @@ Author URI: http://www.mcalamelli.net/
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+$plugin_dir = basename(dirname(__FILE__));
+load_plugin_textdomain( 'btcnew', null, $plugin_dir );
 
 define('BTCNEW_VERSION', '0.0.2');
 
@@ -125,9 +127,9 @@ function btcnew_admin_notices() {
 		_btcnew_install();
 	}
 	if (!_btcnew_is_registered()) {
-		_btcnew_display_message('There was a problem registering your plugin with BackType. Please contact <a href="mailto:mcalamelli@gmail.com">mcalamelli@gmail.com</a> for assistance.', 'notice');
+		_btcnew_display_message(__('There was a problem registering your plugin with BackType. Please contact <a href="mailto:mcalamelli@gmail.com">mcalamelli@gmail.com</a> for assistance.','btcnew'), 'notice');
 	} elseif (!get_option(BTCNEW_ENABLED_OPTION) && $_SERVER['REQUEST_URI'] != '/wp-admin/options-general.php?page=btcew') {
-		_btcnew_display_message('<a href="' . get_option('siteurl') . '/wp-admin/options-general.php?page=btcnew">Configure the plugin</a> to finish setting up BTCNew.', 'success');
+		_btcnew_display_message('<a href="' . get_option('siteurl') . '/wp-admin/options-general.php?page=btcnew">'.__('Configure the plugin</a> to finish setting up BTCNew.','btcnew'), 'success');
 	}
 }
 
@@ -1015,7 +1017,7 @@ function _btcnew_comment_desc($entry) {
 				$source = 'Twitter';
 				break;
 		}
-		$desc = '<p><i>This comment was originally posted on <a href="' . $entry['comment_url'] . '" rel="nofollow"' . (($title != '') ? ' title="' . $title . '"' : '') . '>' . $source . '</a></i></p>';
+		$desc = '<p><i>'.__('This comment was originally posted on', 'btcnew').'<a href="' . $entry['comment_url'] . '" rel="nofollow"' . (($title != '') ? ' title="' . $title . '"' : '') . '>' . $source . '</a></i></p>';
 	}
 	return $desc;
 }
