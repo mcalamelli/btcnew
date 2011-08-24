@@ -3,7 +3,7 @@
 Plugin Name: BTCNew
 Plugin URI: http://www.mcalamelli.net/btcnew
 Description: Show related conversations using the new API(from other blogs, Twitter, Digg, FriendFeed and more) inline with your own comments.
-Version: 0.0.4
+Version: 0.0.5
 Author: Mcalamelli <mcalamelli@gmail.com>
 Author URI: http://www.mcalamelli.net/
 */
@@ -28,9 +28,8 @@ Author URI: http://www.mcalamelli.net/
 $plugin_dir = basename(dirname(__FILE__));
 load_plugin_textdomain( 'btcnew', null, $plugin_dir );
 
-define('BTCNEW_VERSION', '0.0.4');
+define('BTCNEW_VERSION', '0.0.5');
 
-//define('BTC_API_REGISTER_URL', 'http://api.backtype.com/register-connect.xml');
 define('BTCNEW_API_CONNECT_URL', 'http://api.backtype.com/comments/connect.xml');
 define('BTCNEW_API_PING_URL', 'http://api.backtype.com/comments/connect.xml');
 
@@ -73,7 +72,7 @@ if (!defined('WP_PLUGIN_URL')) {
 	define('WP_PLUGIN_URL', WP_CONTENT_URL. '/plugins');
 }
 
-define('BTCNEW_LOG_FILE', false);
+define('BTCNEW_LOG_FILE', 'btcnew_log');
 
 if (BTCNEW_LOG_FILE && get_option(BTCNEW_DEBUG_OPTION)) {
 	error_reporting(E_ALL ^ E_NOTICE);
@@ -147,7 +146,7 @@ function btcnew_connect($offset=false) {
 	if (!isset($_GET['activate']) && !isset($_GET['deactivate'])) {
 		$now = date('i');
 		if ($offset === false || ($now - $offset < 5 && $now - $offset >= 0)) {
-			require_once BTCNEW_DIR . '/db.php'; // DONE sistemare db.php
+			require_once BTCNEW_DIR . '/db.php';
 			$btcnew_posts = btcnew_db_get_posts();
 			if ($btcnew_posts) {
 				$idx = 0;
@@ -176,7 +175,6 @@ function btcnew_connect($offset=false) {
  */
 function btcnew_ping($comment_ID) {
 	$comment = get_comment($comment_ID);
-	//OLD $params = array('identifier' => 'btc', 'key' => get_option(BTC_API_KEY_OPTION), 'url' => get_permalink($comment->comment_post_ID));
    $params = array('url' => get_permalink($comment->comment_post_ID), 'key' => get_option(BTCNEW_API_KEY_OPTION));
 	btcnew_log('Pinging BackType: ' . BTCNEW_API_PING_URL . '?' . http_build_query($params, null, '&'), 'debug');
 	if (_btcnew_url_open_non_blocking(BTCNEW_API_PING_URL . '?' . http_build_query($params, null, '&'))) {
@@ -627,7 +625,6 @@ function _btcnew_import(&$btcnew_post) {
 	$error			= 0;
 	$url		  	= get_permalink($btcnew_post->ID);
 	$itemsperpage 	= '25';
-	//$params		  	= array('identifier' => 'btc', 'url' => $url, 'key' => get_option(BTCNEW_API_KEY_OPTION), 'page' => '1', 'sort' => '1', 'itemsperpage' => $itemsperpage);
    $params = array ('url' => $url,
                     'key' => get_option(BTCNEW_API_KEY_OPTION),
                     'page' => '1',
@@ -1017,7 +1014,7 @@ function _btcnew_comment_desc($entry) {
 				$source = 'Twitter';
 				break;
 		}
-		$desc = '<p><i>'.__('This comment was originally posted on', 'btcnew').'<a href="' . $entry['comment_url'] . '" rel="nofollow"' . (($title != '') ? ' title="' . $title . '"' : '') . '>' . $source . '</a></i></p>';
+		$desc = '<p><em>' . sprintf( __('This comment was originally posted on %s', 'btcnew'), '<a href="' . $entry['comment_url'] . '" rel="nofollow"' . (($title != '') ? ' title="' . $title . '"' : '') . '>' . $source . '</a>' ) . '</em></p>';
 	}
 	return $desc;
 }

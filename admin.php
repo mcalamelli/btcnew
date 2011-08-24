@@ -58,6 +58,7 @@ function btcnew_settings_submenu() {
 				$btcnew_ignore_retweets = (isset($_POST[BTCNEW_IGNORE_RETWEETS_OPTION])) ? true : false;
 				$btcnew_moderation = (isset($_POST[BTCNEW_MODERATION_OPTION])) ? true : false;
 				$btcnew_akismet = (isset($_POST[BTCNEW_AKISMET_OPTION])) ? true : false;
+				$btcnew_debug = (isset($_POST[BTCNEW_DEBUG_OPTION])) ? true : false;
 
 				update_option(BTCNEW_COMMENT_SORT_OPTION, $btcnew_comment_sort);
 				update_option(BTCNEW_SUMMARY_OPTION, $btcnew_summary);
@@ -77,6 +78,7 @@ function btcnew_settings_submenu() {
 				}
 				update_option(BTCNEW_MODERATION_OPTION, $btcnew_moderation);
 				update_option(BTCNEW_AKISMET_OPTION, $btcnew_akismet);
+				update_option(BTCNEW_DEBUG_OPTION, $btcnew_debug);
 
 				$options = array(BTCNEW_OPTION_DISABLED, BTCNEW_OPTION_ENABLED);
 				$btcnew_src_blog = (isset($_POST[BTCNEW_SRC_BLOG_OPTION]) && in_array((int) $_POST[BTCNEW_SRC_BLOG_OPTION], $options)) ?

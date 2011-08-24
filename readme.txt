@@ -3,8 +3,8 @@ Contributors: mcalamelli
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mcalamelli%40gmail%2ecom&lc=IT&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: backtype, comments, twitter, tweets, friendfeed, digg, reddit, conversations, reactions
 Requires at least: 2.7
-Tested up to: 3.0.1
-Stable tag: 0.0.4
+Tested up to: 3.1
+Stable tag: 0.0.5
 
 The BTCNew Wordpress plugin lets you show related conversations (from Twitter, Digg, FriendFeed & more) inline with your own comments.
 
@@ -83,6 +83,10 @@ BackType Connect launched in early March, 2009 so we haven't connected many conv
 
 == Changelog ==
 
+= 0.0.5 =
+* code cleanup
+* add a option to easily debug the plugin
+
 = 0.0.4 =
 * Adjustment in readme.txt to follow WP guidelines
 
@@ -96,6 +100,9 @@ BackType Connect launched in early March, 2009 so we haven't connected many conv
 * First commit
 
 == Upgrade notice ==
+
+= 0.0.5 = 
+Fixed an internal bug and a small typo
 
 = 0.0.4 =
 Upgrade if you want the i18n version of the plugin
