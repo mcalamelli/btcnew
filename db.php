@@ -64,7 +64,7 @@ function btcnew_db_update_filtered($comment_type, $toggle) {
 function btcnew_db_clear_comments() {
 	global $wpdb;
 	$query = 'DELETE FROM ' . $wpdb->prefix . 'comments ' .
-			'WHERE SUBSTR(comment_agent,1,4)=\'btcnew_\'';
+			'WHERE SUBSTR(comment_agent,1,7)=\'btcnew_\'';
 	return $wpdb->query($query);
 }
 
@@ -77,7 +77,7 @@ function btcnew_db_clear_comments() {
  */
 function btcnew_db_comment_counts($ID, $filters=null) {
 	global $wpdb;
-	$query = 'SELECT SUBSTR(comment_agent,5) AS comment_src,COUNT(*) AS cnt,IF(comment_approved=1,1,0) AS enabled ' .
+	$query = 'SELECT SUBSTR(comment_agent,8) AS comment_src,COUNT(*) AS cnt,IF(comment_approved=1,1,0) AS enabled ' .
 			'FROM ' . $wpdb->prefix . 'comments ' .
 			'WHERE comment_post_ID=' . $wpdb->escape($ID) . ' ';
 	if (isset($filters['srcs']) && !empty($filters['srcs'])) {
@@ -87,7 +87,7 @@ function btcnew_db_comment_counts($ID, $filters=null) {
 		}
 		$query .= substr($filter_query, 0, -1) . ') ';
 	}
-	$query .= 'AND comment_approved IN (\'1\',\'d_1\') AND SUBSTR(comment_agent,1,4)=\'btcnew_\' ';
+	$query .= 'AND comment_approved IN (\'1\',\'d_1\') AND SUBSTR(comment_agent,1,7)=\'btcnew_\' ';
 	$query .= 'GROUP BY comment_agent';
 	return $wpdb->get_results($wpdb->prepare($query));
 }
@@ -101,10 +101,10 @@ function btcnew_db_comment_counts($ID, $filters=null) {
  */
 function btcnew_db_comment_summary($ID) {
 	global $wpdb;
-	$query = 'SELECT SUBSTR(comment_agent,5) AS comment_src,COUNT(*) AS cnt,IF(comment_approved=1,1,0) AS enabled ' .
+	$query = 'SELECT SUBSTR(comment_agent,8) AS comment_src,COUNT(*) AS cnt,IF(comment_approved=1,1,0) AS enabled ' .
 			'FROM ' . $wpdb->prefix . 'comments ' .
 			'WHERE comment_post_ID=' . $wpdb->escape($ID) . ' ' .
-			'AND SUBSTR(comment_agent,1,4)=\'btcnew_\' ' .
+			'AND SUBSTR(comment_agent,1,7)=\'btcnew_\' ' .
 			'GROUP BY comment_agent';
 	return $wpdb->get_results($wpdb->prepare($query));
 }

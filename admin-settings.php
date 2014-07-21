@@ -57,6 +57,11 @@
 <td><input type="checkbox" name="<?php echo BTCNEW_AKISMET_OPTION; ?>" id="<?php echo BTCNEW_AKISMET_OPTION; ?>"<?php if (get_option(BTCNEW_AKISMET_OPTION) == true) { ?> checked<?php } ?> />
 <span class="setting-description"><?php _e('Use Akismet to test for spam (you probably don\'t need this).', 'btcnew') ?></span></td>
 </tr>
+<tr valign="top">
+<th scope="row"><label for="<?php echo BTCNEW_DEBUG_OPTION; ?>"><?php _e('Debug', 'btcnew') ?></label></th>
+<td><input type="checkbox" name="<?php echo BTCNEW_DEBUG_OPTION; ?>" id="<?php echo BTCNEW_DEBUG_OPTION; ?>"<?php if (get_option(BTCNEW_DEBUG_OPTION) == true) { ?> checked<?php } ?> />
+<span class="setting-description"><?php _e('Enable to debug the plugin (via btcnew_log file).', 'btcnew') ?></span></td>
+</tr>
 </table>
 <h3><?php _e('Comment Sources', 'btcnew') ?></h3>
 <p><?php printf(__('Specify which sources you would like BTCNew to display comments for:', 'btcnew')) ?></p>
